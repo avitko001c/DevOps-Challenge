@@ -52,15 +52,12 @@ If no variables are set, applying this role will result in a configuration equiv
 
 RedHat/CentOS 7 Playbook
 
-- hosts: webservers
-
+```- hosts: webservers
   become: true
-  
   vars_files:
     - vars/main.yml
-    
   roles:
-    - httpd
+    - httpd```
 
 
 ## Currently this role is for EL7 however with minimal tweaking could be used for EL6.
