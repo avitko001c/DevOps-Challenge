@@ -52,11 +52,10 @@ If no variables are set, applying this role will result in a configuration equiv
 
 ### RedHat/CentOS 7 Playbook
 
-See the Playbook in [Default Playbooks](https://github.com/avitko001c/DevOps-Challenge/playbooks/install_httpd.yml)
-
+See the Playbook in [Default Playbooks](https://github.com/avitko001c/DevOps-Challenge/blob/master/playbooks/install_httpd.yml)
 ### Currently this role is for EL7 however with minimal tweaking could be used for EL6.
 
-See the Playbook in [EL6 Playbooks](https://github.com/avitko001c/DevOps-Challenge/playbooks/install_httpd_el6.yml) for possibly using this for EL6
+See the Playbook in [EL6 Playbooks](https://github.com/avitko001c/DevOps-Challenge/blob/master/playbooks/install_httpd_el6.yml) for possibly using this for EL6
 
 ## License
 
