@@ -1,0 +1,19 @@
+--- # Deploy HTTPD playbook for EL6 Possibility - Role Tweaking needed
+
+- hosts: webservers
+  become: true
+  vars_files:
+    - vars/main.yml
+  roles:
+    - httpd
+  post_tasks:
+    - name: Ensure firewall is running, and open ports 80, 443, and 22
+      service:
+        name: iptables
+        state: started
+    - name: Open 80 port for firewalld
+      command: sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+    - name: Open 443 port for firewalld
+      command: sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+    - name: Open ssh port for firewalld
+      command: sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT

@@ -1,0 +1,7 @@
+# roles/httpd/handlers/httpd.yml
+---
+
+- name: restart httpd
+  service:
+    name: httpd
+    state: restarted

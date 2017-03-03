@@ -1,0 +1,8 @@
+--- # RedHat/CentOS 7 HTTPD Playbook
+
+- hosts: webservers
+  become: true
+  vars_files:
+    - vars/main.yml
+  roles:
+    - httpd

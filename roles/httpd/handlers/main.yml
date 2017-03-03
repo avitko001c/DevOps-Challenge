@@ -1,0 +1,5 @@
+# roles/httpd/handlers/main.yml
+---
+
+- include: httpd.yml		# Restart the httpd daemon
+- include: firewalld.yml	# Restart the firewalld daemon

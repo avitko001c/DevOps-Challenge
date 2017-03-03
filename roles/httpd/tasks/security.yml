@@ -1,0 +1,59 @@
+# roles/el7/tasks/security.yml
+#
+# Basic security settings
+---
+- name: Make sure SELinux is not Enforcing
+  selinux:
+    policy: "{{ selinux_type }}"
+    state: "{{ selinux_state }}"
+  tags:
+    - el7
+    - security
+
+- name: Make sure the firewall is running
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+  tags:
+    - el7
+    - security
+
+- name: Make sure basic services can pass through firewall
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    state: enabled
+  with_items:
+    - dhcpv6-client
+  notify:
+    - restart firewalld
+  tags:
+    - el7
+    - security
+
+- name: Make sure user specified services can pass through firewall
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    state: enabled
+  with_items: "{{ firewall_allow_services }}"
+  when: firewall_allow_services is defined
+  notify:
+    - restart firewalld
+  tags:
+    - el7
+    - security
+
+- name: Make sure user specified ports can pass through firewall
+  firewalld:
+    port: "{{ item }}"
+    permanent: true
+    state: enabled
+  with_items: "{{ firewall_user_ports }}"
+  when: firewall_user_ports is defined
+  notify:
+    - restart firewalld
+  tags:
+    - el7
+    - security
