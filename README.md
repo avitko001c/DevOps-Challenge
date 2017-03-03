@@ -50,37 +50,13 @@ If no variables are set, applying this role will result in a configuration equiv
 
 ## Example Playbook
 
-RedHat/CentOS 7 Playbook
+### RedHat/CentOS 7 Playbook
 
-"- hosts: webservers
-  become: true
-  vars_files:
-    - vars/main.yml
-  roles:
-    - httpd"
+See the Playbooks in [Playbooks](https://github.com/avitko001c/DevOps-Challenge/playbooks/install_httpd.yml)
 
+### Currently this role is for EL7 however with minimal tweaking could be used for EL6.
 
-## Currently this role is for EL7 however with minimal tweaking could be used for EL6.
-
-RedHat/CentOS 6 Playbook
-
-"- hosts: all
-  become: true
-  vars_files:
-    - vars/main.yml
-  roles:
-    - httpd
-  post_tasks:
-    - name: Ensure firewall is running, and open ports 80, 443, and 22
-      service:
-        name: iptables
-        state: started
-    - name: Open 80 port for firewalld
-      command: sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-    - name: Open 443 port for firewalld
-      command: sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
-    - name: Open ssh port for firewalld
-      command: sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT"
+See the Playbooks in [Playbooks](https://github.com/avitko001c/DevOps-Challenge/playbooks/install_httpd_el6.yml) for possibly using this for EL6
 
 ## License
 
