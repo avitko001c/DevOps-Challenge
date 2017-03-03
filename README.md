@@ -53,6 +53,7 @@ If no variables are set, applying this role will result in a configuration equiv
 RedHat/CentOS 7 Playbook
 
 - hosts: webservers
+
   become: true
   vars_files:
     - vars/main.yml
