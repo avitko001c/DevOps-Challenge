@@ -1,7 +1,7 @@
 # DevOps-Challenge
 Project for the Comcast DevOps Challenge
 
-# Ansible role `httpd`
+## Ansible role `httpd`
 
 An Ansible role for installing and configuring the Apache web server with SSL with a default webpage.
 
@@ -55,8 +55,10 @@ RedHat/CentOS 7 Playbook
 - hosts: webservers
 
   become: true
+  
   vars_files:
     - vars/main.yml
+    
   roles:
     - httpd
 
