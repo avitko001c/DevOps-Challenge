@@ -52,19 +52,19 @@ If no variables are set, applying this role will result in a configuration equiv
 
 RedHat/CentOS 7 Playbook
 
-- hosts: webservers
+"- hosts: webservers
   become: true
   vars_files:
     - vars/main.yml
   roles:
-    - httpd
+    - httpd"
 
 
 ## Currently this role is for EL7 however with minimal tweaking could be used for EL6.
 
 RedHat/CentOS 6 Playbook
 
-- hosts: all
+"- hosts: all
   become: true
   vars_files:
     - vars/main.yml
@@ -80,7 +80,7 @@ RedHat/CentOS 6 Playbook
     - name: Open 443 port for firewalld
       command: sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
     - name: Open ssh port for firewalld
-      command: sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+      command: sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT"
 
 ## License
 
