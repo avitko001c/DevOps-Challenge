@@ -59,8 +59,8 @@ RedHat/CentOS 7 Playbook
   roles:
     - httpd
 
-# This playbook would be used to allow for iptables configs with CentOS6.
-# Currently this role is for EL7 however with minimal tweaking could be used for EL6.
+
+## Currently this role is for EL7 however with minimal tweaking could be used for EL6.
 
 RedHat/CentOS 6 Playbook
 
